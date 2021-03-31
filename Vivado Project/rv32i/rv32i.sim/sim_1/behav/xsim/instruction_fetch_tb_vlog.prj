@@ -1,0 +1,18 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../riscv_j.ip_user_files/bd/Instr_ROM/ip/Instr_ROM_blk_mem_gen_0_0/sim/Instr_ROM_blk_mem_gen_0_0.v" \
+"../../../../riscv_j.ip_user_files/bd/Instr_ROM/sim/Instr_ROM.v" \
+
+sv xil_defaultlib  \
+"../../../../riscv_j.srcs/sources_1/new/instr_mem.sv" \
+"../../../../riscv_j.srcs/sources_1/new/instruction_fetch.sv" \
+"../../../../riscv_j.srcs/sources_1/new/program_counter.sv" \
+
+verilog xil_defaultlib  \
+"../../../../riscv_j.srcs/sim_1/new/instruction_fetch_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

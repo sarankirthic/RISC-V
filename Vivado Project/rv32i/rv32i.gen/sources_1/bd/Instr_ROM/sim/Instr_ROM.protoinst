@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"Instr_ROM": {
+			"proto_instances": {
+			}
+		}
+	}
+}

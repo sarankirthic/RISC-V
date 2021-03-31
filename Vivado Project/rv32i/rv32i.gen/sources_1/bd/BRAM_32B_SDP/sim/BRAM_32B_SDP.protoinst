@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"BRAM_32B_SDP": {
+			"proto_instances": {
+			}
+		}
+	}
+}
