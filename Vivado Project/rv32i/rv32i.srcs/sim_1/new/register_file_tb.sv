@@ -28,7 +28,7 @@ module register_file_tb;
     reg i_wPort_en;
     reg i_wPort_we;
     reg [4:0]i_portA_addr;
-    reg i_mem_en;
+    reg i_portA_en;
     reg [4:0]i_portB_addr;
     reg i_portB_en;
     wire [7:0]o_portA_dout;
@@ -41,7 +41,7 @@ module register_file_tb;
         .i_wPort_en(i_wPort_en),
         .i_wPort_we(i_wPort_we),
         .i_portA_addr(i_portA_addr),
-        .i_mem_en(i_mem_en),
+        .i_portA_en(i_portA_en),
         .i_portB_addr(i_portB_addr),
         .i_portB_en(i_portB_en),
         .o_portA_dout(o_portA_dout),
@@ -62,7 +62,7 @@ module register_file_tb;
         i_wPort_we = 1'b0;
         
         i_portA_addr = 0;
-        i_mem_en = 1'b0;
+        i_portA_en = 1'b0;
         
         i_portB_addr = 0;
         i_portB_en = 1'b0;
@@ -76,7 +76,7 @@ module register_file_tb;
         i_wPort_en = 1'b0;
         i_wPort_we = 1'b0;
         #10
-        i_mem_en = 1'b1;
+        i_portA_en = 1'b1;
         i_portB_en = 1'b1;
         i_wPort_addr = 2;
         i_wPort_din = 20;

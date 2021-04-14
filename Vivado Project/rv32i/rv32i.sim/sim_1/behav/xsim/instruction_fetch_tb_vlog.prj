@@ -6,7 +6,6 @@ verilog xil_defaultlib  \
 sv xil_defaultlib  \
 "../../../../riscv_j.srcs/sources_1/new/instr_mem.sv" \
 "../../../../riscv_j.srcs/sources_1/new/instruction_fetch.sv" \
-"../../../../riscv_j.srcs/sources_1/new/program_counter.sv" \
 
 verilog xil_defaultlib  \
 "../../../../riscv_j.srcs/sim_1/new/instruction_fetch_tb.v" \

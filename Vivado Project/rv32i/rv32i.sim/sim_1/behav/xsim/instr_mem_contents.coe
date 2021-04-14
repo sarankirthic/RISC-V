@@ -1,2 +1,2 @@
 memory_initialization_radix=16;
-memory_initialization_vector=ABEDED63 BBEDED23 CBEDED33 DBEDED13;
+memory_initialization_vector=ABEDED63 BBEDED23 00000033 DBEDED13;

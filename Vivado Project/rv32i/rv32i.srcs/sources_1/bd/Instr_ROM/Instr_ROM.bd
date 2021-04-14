@@ -79,7 +79,7 @@
                         "value": "false"
                     },
                     "Write_Depth_A": {
-                        "value": "29600"
+                        "value": "25000"
                     },
                     "use_bram_block": {
                         "value": "Stand_Alone"

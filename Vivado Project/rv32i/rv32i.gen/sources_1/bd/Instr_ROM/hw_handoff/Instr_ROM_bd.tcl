@@ -177,7 +177,7 @@ proc create_root_design { parentCell } {
    CONFIG.Remaining_Memory_Locations {EDEDEDED} \
    CONFIG.Use_Byte_Write_Enable {false} \
    CONFIG.Use_RSTA_Pin {false} \
-   CONFIG.Write_Depth_A {29600} \
+   CONFIG.Write_Depth_A {25000} \
    CONFIG.use_bram_block {Stand_Alone} \
  ] $blk_mem_gen_0
 

@@ -3,4 +3,4 @@ Time resolution is 1 ps
  Block Memory Generator module loading initial data...
  Block Memory Generator data initialization complete.
 Block Memory Generator module core_top_tb.uut.instruction_fetch_inst1.instr_mem_inst1.Instr_ROM_1.blk_mem_gen_0.inst.\native_mem_mapped_module.blk_mem_gen_v8_4_4_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
-$finish called at time : 500 ns : File "D:/Harid/HobbyProjects/Electronics/FPGAProjetcs/riscv_j/riscv_j.srcs/sim_1/new/core_top_tb.sv" Line 51
+$finish called at time : 500 ns : File "D:/Harid/HobbyProjects/Electronics/FPGAProjetcs/riscv_j/riscv_j.srcs/sim_1/new/core_top_tb.sv" Line 56

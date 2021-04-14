@@ -28,12 +28,19 @@ module core_top_tb;
     wire [31:0] o_instr;
     wire [31:0] o_pc;
     
+    wire o_add;
+    wire o_and;
+    wire o_or;
+    
     core_top uut (
         .i_clk_100M(i_clk_100M),
         .i_reset_n(i_reset_n),
         .o_instr_valid(o_instr_valid),
         .o_instr(o_instr),
-        .o_pc(o_pc)
+        .o_pc(o_pc),
+        .o_add(o_add),
+        .o_and(o_and),
+        .o_or(o_or)
     );
     
     always begin

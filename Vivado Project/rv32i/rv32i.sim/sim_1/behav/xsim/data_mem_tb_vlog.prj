@@ -1,0 +1,14 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../riscv_j.ip_user_files/bd/Data_RAM/ip/Data_RAM_blk_mem_gen_0_0/sim/Data_RAM_blk_mem_gen_0_0.v" \
+"../../../../riscv_j.ip_user_files/bd/Data_RAM/sim/Data_RAM.v" \
+
+sv xil_defaultlib  \
+"../../../../riscv_j.srcs/sources_1/new/data_mem.sv" \
+"../../../../riscv_j.srcs/sim_1/new/data_mem_tb.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

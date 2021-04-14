@@ -23,12 +23,12 @@
 module instr_mem_tb;
 
     reg i_clk_100M;
-    reg [31:0]i_instr_addr;
+    reg [31:0]i_data_addr;
     wire [31:0]o_mem_instr;
     
     instr_mem uut (
         .i_clk_100M(i_clk_100M),
-        .i_instr_addr(i_instr_addr),
+        .i_data_addr(i_data_addr),
         .o_mem_instr(o_mem_instr)
     );
     
@@ -40,28 +40,28 @@ module instr_mem_tb;
     initial begin
         i_clk_100M = 1'b1;
          
-        i_instr_addr = 0;
+        i_data_addr = 0;
         
         #80
-        i_instr_addr = 1;
+        i_data_addr = 1;
         
         #40
-        i_instr_addr = 2;
+        i_data_addr = 2;
         
         #40
-        i_instr_addr = 3;
+        i_data_addr = 3;
         
         #40
-        i_instr_addr = 4;
+        i_data_addr = 4;
         
         #40
-        i_instr_addr = 8;
+        i_data_addr = 8;
         
         #40
-        i_instr_addr = 7;
+        i_data_addr = 7;
         
         #40
-        i_instr_addr = 29599;
+        i_data_addr = 25000;
         
         #50
         $finish;
