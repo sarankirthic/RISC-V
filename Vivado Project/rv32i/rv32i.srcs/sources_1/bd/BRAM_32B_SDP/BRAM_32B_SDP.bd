@@ -74,11 +74,17 @@
                 "xci_path": "ip\\BRAM_32B_SDP_blk_mem_gen_0_0\\BRAM_32B_SDP_blk_mem_gen_0_0.xci",
                 "inst_hier_path": "blk_mem_gen_0",
                 "parameters": {
+                    "Coe_File": {
+                        "value": "reg_file.coe"
+                    },
                     "Enable_32bit_Address": {
                         "value": "false"
                     },
                     "Enable_B": {
                         "value": "Use_ENB_Pin"
+                    },
+                    "Load_Init_File": {
+                        "value": "true"
                     },
                     "Memory_Type": {
                         "value": "Simple_Dual_Port_RAM"

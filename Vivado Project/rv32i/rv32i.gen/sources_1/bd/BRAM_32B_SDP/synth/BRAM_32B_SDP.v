@@ -1,7 +1,7 @@
 //Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-//Date        : Tue Feb 16 21:23:57 2021
+//Date        : Fri May  7 21:57:29 2021
 //Host        : Harid-PC running 64-bit major release  (build 9200)
 //Command     : generate_target BRAM_32B_SDP.bd
 //Design      : BRAM_32B_SDP

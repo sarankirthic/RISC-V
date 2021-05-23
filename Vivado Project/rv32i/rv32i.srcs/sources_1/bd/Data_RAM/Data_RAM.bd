@@ -1,7 +1,7 @@
 {
     "design": {
         "design_info": {
-            "boundary_crc": "0x3382843D5C47CD9",
+            "boundary_crc": "0xA8F55CAA6189DE40",
             "device": "xc7a35ticsg324-1L",
             "gen_directory": "../../../../rv32i.gen/sources_1/bd/Data_RAM",
             "name": "Data_RAM",
@@ -37,6 +37,35 @@
                     "READ_LATENCY": {
                         "value": "1",
                         "value_src": "default"
+                    },
+                    "READ_WRITE_MODE": {
+                        "value": "READ_WRITE"
+                    }
+                }
+            },
+            "BRAM_PORTB_0": {
+                "mode": "Slave",
+                "vlnv": "xilinx.com:interface:bram_rtl:1.0",
+                "parameters": {
+                    "MASTER_TYPE": {
+                        "value": "OTHER",
+                        "value_src": "default"
+                    },
+                    "MEM_ECC": {
+                        "value": "NONE",
+                        "value_src": "default"
+                    },
+                    "MEM_SIZE": {
+                        "value": "8192",
+                        "value_src": "default"
+                    },
+                    "MEM_WIDTH": {
+                        "value": "32",
+                        "value_src": "default"
+                    },
+                    "READ_LATENCY": {
+                        "value": "1",
+                        "value_src": "default"
                     }
                 }
             }
@@ -48,37 +77,43 @@
                 "xci_path": "ip\\Data_RAM_blk_mem_gen_0_0\\Data_RAM_blk_mem_gen_0_0.xci",
                 "inst_hier_path": "blk_mem_gen_0",
                 "parameters": {
+                    "Assume_Synchronous_Clk": {
+                        "value": "true"
+                    },
+                    "Coe_File": {
+                        "value": "data_mem.coe"
+                    },
                     "Enable_32bit_Address": {
                         "value": "false"
                     },
                     "Enable_A": {
-                        "value": "Always_Enabled"
+                        "value": "Use_ENA_Pin"
+                    },
+                    "Enable_B": {
+                        "value": "Use_ENB_Pin"
                     },
                     "Fill_Remaining_Memory_Locations": {
+                        "value": "false"
+                    },
+                    "Load_Init_File": {
                         "value": "true"
                     },
                     "Memory_Type": {
-                        "value": "Single_Port_RAM"
+                        "value": "Simple_Dual_Port_RAM"
                     },
                     "Operating_Mode_A": {
-                        "value": "NO_CHANGE"
+                        "value": "WRITE_FIRST"
                     },
                     "Port_B_Clock": {
-                        "value": "0"
+                        "value": "100"
                     },
                     "Port_B_Enable_Rate": {
-                        "value": "0"
+                        "value": "100"
                     },
-                    "Port_B_Write_Rate": {
-                        "value": "0"
-                    },
-                    "Register_PortA_Output_of_Memory_Primitives": {
+                    "Register_PortB_Output_of_Memory_Primitives": {
                         "value": "true"
                     },
                     "Use_Byte_Write_Enable": {
-                        "value": "false"
-                    },
-                    "Use_RSTA_Pin": {
                         "value": "false"
                     },
                     "Write_Depth_A": {
@@ -95,6 +130,12 @@
                 "interface_ports": [
                     "BRAM_PORTA_0",
                     "blk_mem_gen_0/BRAM_PORTA"
+                ]
+            },
+            "BRAM_PORTB_0_1": {
+                "interface_ports": [
+                    "BRAM_PORTB_0",
+                    "blk_mem_gen_0/BRAM_PORTB"
                 ]
             }
         }

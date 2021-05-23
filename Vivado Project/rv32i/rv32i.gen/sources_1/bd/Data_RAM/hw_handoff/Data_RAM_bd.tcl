@@ -157,6 +157,11 @@ proc create_root_design { parentCell } {
 
   # Create interface ports
   set BRAM_PORTA_0 [ create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:bram_rtl:1.0 BRAM_PORTA_0 ]
+  set_property -dict [ list \
+   CONFIG.READ_WRITE_MODE {READ_WRITE} \
+   ] $BRAM_PORTA_0
+
+  set BRAM_PORTB_0 [ create_bd_intf_port -mode Slave -vlnv xilinx.com:interface:bram_rtl:1.0 BRAM_PORTB_0 ]
 
 
   # Create ports
@@ -164,19 +169,24 @@ proc create_root_design { parentCell } {
   # Create instance: blk_mem_gen_0, and set properties
   set blk_mem_gen_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.4 blk_mem_gen_0 ]
   set_property -dict [ list \
+   CONFIG.Assume_Synchronous_Clk {true} \
    CONFIG.Byte_Size {9} \
+   CONFIG.Coe_File {data_mem.coe} \
    CONFIG.EN_SAFETY_CKT {false} \
    CONFIG.Enable_32bit_Address {false} \
-   CONFIG.Enable_A {Always_Enabled} \
-   CONFIG.Enable_B {Always_Enabled} \
-   CONFIG.Fill_Remaining_Memory_Locations {true} \
-   CONFIG.Memory_Type {Single_Port_RAM} \
-   CONFIG.Operating_Mode_A {NO_CHANGE} \
-   CONFIG.Port_B_Clock {0} \
-   CONFIG.Port_B_Enable_Rate {0} \
+   CONFIG.Enable_A {Use_ENA_Pin} \
+   CONFIG.Enable_B {Use_ENB_Pin} \
+   CONFIG.Fill_Remaining_Memory_Locations {false} \
+   CONFIG.Load_Init_File {true} \
+   CONFIG.Memory_Type {Simple_Dual_Port_RAM} \
+   CONFIG.Operating_Mode_A {WRITE_FIRST} \
+   CONFIG.Operating_Mode_B {READ_FIRST} \
+   CONFIG.Port_B_Clock {100} \
+   CONFIG.Port_B_Enable_Rate {100} \
    CONFIG.Port_B_Write_Rate {0} \
-   CONFIG.Register_PortA_Output_of_Memory_Primitives {true} \
-   CONFIG.Register_PortB_Output_of_Memory_Primitives {false} \
+   CONFIG.Register_PortA_Output_of_Memory_Core {false} \
+   CONFIG.Register_PortA_Output_of_Memory_Primitives {false} \
+   CONFIG.Register_PortB_Output_of_Memory_Primitives {true} \
    CONFIG.Use_Byte_Write_Enable {false} \
    CONFIG.Use_RSTA_Pin {false} \
    CONFIG.Write_Depth_A {25000} \
@@ -185,6 +195,7 @@ proc create_root_design { parentCell } {
 
   # Create interface connections
   connect_bd_intf_net -intf_net BRAM_PORTA_0_1 [get_bd_intf_ports BRAM_PORTA_0] [get_bd_intf_pins blk_mem_gen_0/BRAM_PORTA]
+  connect_bd_intf_net -intf_net BRAM_PORTB_0_1 [get_bd_intf_ports BRAM_PORTB_0] [get_bd_intf_pins blk_mem_gen_0/BRAM_PORTB]
 
   # Create port connections
 

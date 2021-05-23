@@ -5,13 +5,13 @@
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port BRAM_PORTA_0 -pg 1 -lvl 0 -x 0 -y -30 -defaultsOSRD
-preplace port BRAM_PORTB_0 -pg 1 -lvl 0 -x 0 -y 90 -defaultsOSRD
-preplace inst blk_mem_gen_0 -pg 1 -lvl 1 -x 130 -y 70 -defaultsOSRD
-preplace netloc BRAM_PORTB_0_1 1 0 1 20J 80n
-preplace netloc BRAM_PORTA_0_1 1 0 1 20J -30n
+preplace port BRAM_PORTA_0 -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
+preplace port BRAM_PORTB_0 -pg 1 -lvl 0 -x 0 -y 180 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 1 -x 130 -y 160 -defaultsOSRD
+preplace netloc BRAM_PORTB_0_1 1 0 1 NJ 180
+preplace netloc BRAM_PORTA_0_1 1 0 1 NJ 60
 levelinfo -pg 1 0 130 240
-pagesize -pg 1 -db -bbox -sgen -170 -100 240 230
+pagesize -pg 1 -db -bbox -sgen -160 -100 240 320
 "
 }
 0

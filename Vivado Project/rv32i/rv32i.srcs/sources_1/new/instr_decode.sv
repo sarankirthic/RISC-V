@@ -33,6 +33,8 @@ module instr_decode(
     output [4:0] o_rs1,    
     output [4:0] o_rs2,
     output [31:0] o_imm,
+    output o_i_type,
+    output o_r_type,
     output o_add,
     output o_sub, 
     output o_sll, 
@@ -72,8 +74,13 @@ module instr_decode(
     output o_lui, 
     output o_auipc, 
     output o_jal,
+    output o_jalr,
     output [5:0] o_load_type,
-    output [2:0] o_store_type
+    output [2:0] o_store_type,
+    output [7:0] o_branch_type,
+    output [3:0] o_arithmetic,
+    output [9:0] o_logical,
+    output [5:0] o_shift
     );
     
     wire w_r_type = i_instr_valid ? (i_instr[6:2] == 5'b01100 ? 1'b1 : 1'b0) : 1'b0;
@@ -83,13 +90,16 @@ module instr_decode(
     wire w_u_type = i_instr_valid ? ((i_instr[6:2] == 5'b01101 || i_instr[6:2] == 5'b00101) ? 1'b1 : 1'b0) : 1'b0;
     wire w_j_type = i_instr_valid ? (i_instr[6:2] == 5'b11011 ? 1'b1 : 1'b0) : 1'b0;
     
-    assign o_rd_valid = !(w_s_type || w_b_type);
-    assign o_rs1_valid = !(w_u_type || w_j_type);
-    assign o_rs2_valid = !(w_i_type || w_u_type || w_j_type);
-    wire w_funct3_valid = !(w_u_type || w_j_type);
-    wire w_funct7_valid = w_r_type;
-    wire w_funct12_valid = (i_instr[6:2] == 5'b11100); //for ebreak and ecall instructions
-    assign o_imm_valid = !(w_r_type | (i_instr[6:2] == 5'b11100)); //immediate invalid for r-type and ebreak and ecall instructions
+    assign o_i_type = w_i_type;
+    assign o_r_type = w_r_type;
+    
+    assign o_rd_valid = i_instr_valid ? (!(w_s_type || w_b_type)) : 1'b0;
+    assign o_rs1_valid = i_instr_valid ? (!(w_u_type || w_j_type)) : 1'b0;
+    assign o_rs2_valid = i_instr_valid ? (!(w_i_type || w_u_type || w_j_type)) : 1'b0;
+    wire w_funct3_valid = i_instr_valid ? (!(w_u_type || w_j_type)) : 1'b0;
+    wire w_funct7_valid = i_instr_valid ? (w_r_type) : 1'b0;
+    wire w_funct12_valid = i_instr_valid ? ((i_instr[6:2] == 5'b11100)) : 1'b0; //for ebreak and ecall instructions
+    assign o_imm_valid = i_instr_valid ? (!(w_r_type | (i_instr[6:2] == 5'b11100))) : 1'b0; //immediate invalid for r-type and ebreak and ecall instructions
     
     assign o_rd = o_rd_valid ? i_instr[11:7] : 5'b0;
     assign o_rs1 = o_rs1_valid ? i_instr[19:15] : 5'b0;
@@ -99,7 +109,7 @@ module instr_decode(
     wire [11:0] w_funct12 = w_funct12_valid ? i_instr[31:20] : 12'b0;
     assign o_imm = o_imm_valid ? w_i_type ? {{21{i_instr[31]}},i_instr[30:20]} : 
                                       w_s_type ? {{21{i_instr[31]}}, i_instr[30:25], i_instr[11:7]} :
-                                      w_b_type ? {{21{i_instr[31]}}, i_instr[30:25], i_instr[11:8], 1'b0} :
+                                      w_b_type ? {{20{i_instr[31]}}, i_instr[7], i_instr[30:25], i_instr[11:8], 1'b0} :
                                       w_u_type ? {i_instr[31], i_instr[30:20], i_instr[19:12], 12'b0} :
                                       w_j_type ? {{12{i_instr[31]}}, i_instr[19:12], i_instr[20], i_instr[30:21], 1'b0} :
                                       32'b0 : 32'b0;                               
@@ -132,6 +142,8 @@ module instr_decode(
     assign o_ori = (w_funct_op inside {11'b?_110_0010011});
     assign o_andi = (w_funct_op inside {11'b?_111_0010011});
     assign o_fence = (w_funct_op inside {11'b?_000_0001111});
+    //I type Jump Intruction
+    assign o_jalr = (w_funct_op inside {11'b?_000_1100111});
     //I type Load instructions
     assign o_lb = (w_funct_op inside {11'b?_000_0000011});
     assign o_lh = (w_funct_op inside {11'b?_001_0000011});
@@ -174,4 +186,41 @@ module instr_decode(
                          o_sh ? 3'b010 :
                          o_sw ? 3'b100 :
                          3'b000;
+                         
+    assign o_branch_type = o_beq ? 8'b0000_0001 :
+                           o_bne ? 8'b0000_0010 :
+                           o_blt ? 8'b0000_0100 :
+                           o_bge ? 8'b0000_1000 :
+                           o_bltu ? 8'b0001_0000 :
+                           o_bgeu ? 8'b0010_0000 :
+                           o_jalr ? 8'b0100_0000 :
+                           o_jal ? 8'b1000_0000 :
+                           0;
+                           
+    assign o_arithmetic = o_addi ? 4'b0001 :
+                          o_add ? 4'b0010 :
+                          o_sub ? 4'b0100 :
+                          o_auipc ? 4'b1000 :
+                          0;
+                          
+    assign o_logical = o_slti ? 10'b0000_0000_01 :
+                       o_sltiu ? 10'b0000_0000_10 :
+                       o_xori ? 10'b0000_0001_00 :
+                       o_ori ? 10'b0000_0010_00 :
+                       o_andi ? 10'b0000_0100_00 :
+                       o_slt ? 10'b0000_1000_00 :
+                       o_sltu ? 10'b0001_0000_00 :
+                       o_xor ? 10'b0010_0000_00 :
+                       o_or ? 10'b0100_0000_00 :
+                       o_and ? 10'b1000_0000_00 :
+                       0;
+                       
+    assign o_shift = o_slli ? 6'b000_001 :
+                     o_srli ? 6'b000_010 :
+                     o_srai ? 6'b000_100 :
+                     o_sll ? 6'b001_000 :
+                     o_srl ? 6'b010_000 :
+                     o_sra ? 6'b100_000 :
+                     0;                     
+                                                                                                                                  
 endmodule

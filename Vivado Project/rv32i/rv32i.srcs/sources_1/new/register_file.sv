@@ -22,8 +22,9 @@
 
 module register_file(
     input i_clk_100M,
+    input i_instr_valid,
     input [4:0]i_wPort_addr,
-    input [7:0]i_wPort_din,
+    input [31:0]i_wPort_din,
     input i_wPort_en,
     input i_wPort_we,
     input [4:0]i_portA_addr,
@@ -32,8 +33,8 @@ module register_file(
     input i_portB_en,
     output o_portA_valid,
     output o_portB_valid,
-    output [7:0]o_portA_dout,
-    output [7:0]o_portB_dout
+    output [31:0]o_portA_dout,
+    output [31:0]o_portB_dout
     );
     
      BRAM_32B_SDP BRAM_32B_SDP_RPORTA
@@ -58,10 +59,10 @@ module register_file(
         .BRAM_PORTB_0_dout(o_portB_dout),
         .BRAM_PORTB_0_en(i_portB_en));
         
-    reg [31:0] r_portA_addr_del_1 = 0;
-    reg [31:0] r_portA_addr_del_2 = 0;
-    reg [31:0] r_portB_addr_del_1 = 0;
-    reg [31:0] r_portB_addr_del_2 = 0;
+    reg [4:0] r_portA_addr_del_1 = 0;
+    reg [4:0] r_portA_addr_del_2 = 0;
+    reg [4:0] r_portB_addr_del_1 = 0;
+    reg [4:0] r_portB_addr_del_2 = 0;
     
     reg [2:0] r_init_clk_count = 0;
     
@@ -79,7 +80,9 @@ module register_file(
         r_portB_addr_del_2 <= r_portB_addr_del_1;
     end
     
-    assign o_portA_valid = ((i_portA_addr == r_portA_addr_del_2) && (r_init_clk_count == 7)) ? 1'b1 : 1'b0;
-    assign o_portB_valid = ((i_portB_addr == r_portB_addr_del_2) && (r_init_clk_count == 7)) ? 1'b1 : 1'b0;
+    assign o_portA_valid = i_portA_en ? ((i_portA_addr == r_portA_addr_del_2) && (r_init_clk_count == 7)) ? 1'b1 : 1'b0 :
+                            1'b0;
+    assign o_portB_valid = i_portB_en ? ((i_portB_addr == r_portB_addr_del_2) && (r_init_clk_count == 7)) ? 1'b1 : 1'b0 :
+                            1'b0;
         
 endmodule

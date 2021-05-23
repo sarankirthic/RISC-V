@@ -1,10 +1,10 @@
 // Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-// Date        : Tue Feb 16 21:26:34 2021
+// Date        : Sat May 15 19:08:16 2021
 // Host        : Harid-PC running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub {d:/Harid/Hobby Projects/Electronics/FPGA
-//               Projetcs/riscv_j/riscv_j.gen/sources_1/bd/BRAM_32B_SDP/ip/BRAM_32B_SDP_blk_mem_gen_0_0/BRAM_32B_SDP_blk_mem_gen_0_0_stub.v}
+// Command     : write_verilog -force -mode synth_stub -rename_top BRAM_32B_SDP_blk_mem_gen_0_0 -prefix
+//               BRAM_32B_SDP_blk_mem_gen_0_0_ BRAM_32B_SDP_blk_mem_gen_0_0_stub.v
 // Design      : BRAM_32B_SDP_blk_mem_gen_0_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35ticsg324-1L

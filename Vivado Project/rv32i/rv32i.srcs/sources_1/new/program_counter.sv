@@ -34,12 +34,16 @@ module program_counter(
     always@ (posedge i_clk_100M or negedge i_reset_n)
     begin
         if(!i_reset_n)
+        begin
             counter <= 0;
-    
-        if(i_load_en)
-            counter <= i_load_val;
-        else if(i_count_en)
-            counter <= counter + 4;
+        end
+        else
+        begin
+            if(i_load_en)
+                counter <= i_load_val;
+            else if(i_count_en)
+                counter <= counter + 4;
+        end
     end
     
     assign o_pc = counter;

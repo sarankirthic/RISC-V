@@ -23,19 +23,21 @@
 module register_file_tb;
 
     reg i_clk_100M;
+    reg i_instr_valid;
     reg [4:0]i_wPort_addr;
-    reg [7:0]i_wPort_din;
+    reg [31:0]i_wPort_din;
     reg i_wPort_en;
     reg i_wPort_we;
     reg [4:0]i_portA_addr;
     reg i_portA_en;
     reg [4:0]i_portB_addr;
     reg i_portB_en;
-    wire [7:0]o_portA_dout;
-    wire [7:0]o_portB_dout;
+    wire [31:0]o_portA_dout;
+    wire [31:0]o_portB_dout;
     
     register_file uut (
         .i_clk_100M(i_clk_100M),
+        .i_instr_valid(i_instr_valid),
         .i_wPort_addr(i_wPort_addr),
         .i_wPort_din(i_wPort_din),
         .i_wPort_en(i_wPort_en),
@@ -55,6 +57,7 @@ module register_file_tb;
     
     initial begin
         i_clk_100M = 1'b1;
+        i_instr_valid = 1'b1;
         
         i_wPort_addr = 0;
         i_wPort_din = 0;
@@ -86,6 +89,9 @@ module register_file_tb;
         i_wPort_en = 1'b0;
         i_wPort_we = 1'b0;
         i_portB_addr = 2;
+        #10
+        i_portB_addr = 0;
+        i_portA_addr = 2;
         #50
         $finish;
         

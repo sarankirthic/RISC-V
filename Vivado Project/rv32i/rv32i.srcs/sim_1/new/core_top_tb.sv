@@ -32,6 +32,19 @@ module core_top_tb;
     wire o_and;
     wire o_or;
     
+    wire o_rs1_valid, o_rs2_valid, o_rd_valid;
+    wire [4:0] o_rs1_addr, o_rs2_addr, o_rd_addr;
+    
+    wire o_port_rs1_valid, o_port_rs2_valid;
+    wire [31:0] o_port_rs1;
+    wire [31:0] o_port_rs2;
+    
+    wire o_dm_valid, o_dm_we;
+    wire [31:0] o_dm_addr;
+    wire [31:0] o_dm_out;
+    wire [31:0] o_dm_in;
+    wire o_done;
+    
     core_top uut (
         .i_clk_100M(i_clk_100M),
         .i_reset_n(i_reset_n),
@@ -40,7 +53,23 @@ module core_top_tb;
         .o_pc(o_pc),
         .o_add(o_add),
         .o_and(o_and),
-        .o_or(o_or)
+        .o_or(o_or),
+        .o_rs1_valid(o_rs1_valid),
+        .o_rs2_valid(o_rs2_valid),
+        .o_rd_valid(o_rd_valid),
+        .o_rs1_addr(o_rs1_addr),
+        .o_rs2_addr(o_rs2_addr),
+        .o_rd_addr(o_rd_addr),
+        .o_port_rs1_valid(o_port_rs1_valid),
+        .o_port_rs2_valid(o_port_rs2_valid),
+        .o_port_rs1(o_port_rs1),
+        .o_port_rs2(o_port_rs2),
+        .o_dm_valid(o_dm_valid),
+        .o_dm_we(o_dm_we),
+        .o_dm_addr(o_dm_addr),
+        .o_dm_out(o_dm_out),
+        .o_dm_in(o_dm_in),
+        .o_done(o_done)
     );
     
     always begin
@@ -52,7 +81,7 @@ module core_top_tb;
         i_clk_100M = 1'b1;
         i_reset_n = 1'b1;
         
-        #500
+        #700
         $finish;
     end
 

@@ -4,6 +4,10 @@ Running: S:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto e312492e50
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 6 differs from formal bit length 8 for port 'o_branch_type' [D:/Harid/HobbyProjects/Electronics/FPGAProjetcs/riscv_j/riscv_j.srcs/sources_1/new/core_top.sv:201]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 15 for port 'BRAM_PORTA_0_addr' [D:/Harid/HobbyProjects/Electronics/FPGAProjetcs/riscv_j/riscv_j.srcs/sources_1/new/data_mem.sv:36]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 15 for port 'BRAM_PORTB_0_addr' [D:/Harid/HobbyProjects/Electronics/FPGAProjetcs/riscv_j/riscv_j.srcs/sources_1/new/data_mem.sv:41]
+WARNING: [VRFC 10-3091] actual bit length 6 differs from formal bit length 8 for port 'i_branch_type' [D:/Harid/HobbyProjects/Electronics/FPGAProjetcs/riscv_j/riscv_j.srcs/sources_1/new/core_top.sv:279]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -19,6 +23,23 @@ Compiling module xil_defaultlib.Instr_ROM
 Compiling module xil_defaultlib.instr_mem
 Compiling module xil_defaultlib.instruction_fetch
 Compiling module xil_defaultlib.instr_decode
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_axi_regs_fwd_v8_4(C_DATA...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.Data_RAM_blk_mem_gen_0_0
+Compiling module xil_defaultlib.Data_RAM
+Compiling module xil_defaultlib.data_mem
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
+Compiling module xil_defaultlib.BRAM_32B_SDP_blk_mem_gen_0_0
+Compiling module xil_defaultlib.BRAM_32B_SDP
+Compiling module xil_defaultlib.register_file
+Compiling module xil_defaultlib.mmu
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.branch_control
 Compiling module xil_defaultlib.core_top
 Compiling module xil_defaultlib.core_top_tb
 Compiling module xil_defaultlib.glbl
