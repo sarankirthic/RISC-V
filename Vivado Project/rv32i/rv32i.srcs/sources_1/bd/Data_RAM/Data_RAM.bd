@@ -126,16 +126,16 @@
       }
     },
     "interface_nets": {
-      "BRAM_PORTB_0_1": {
-        "interface_ports": [
-          "BRAM_PORTB_0",
-          "blk_mem_gen_0/BRAM_PORTB"
-        ]
-      },
       "BRAM_PORTA_0_1": {
         "interface_ports": [
           "BRAM_PORTA_0",
           "blk_mem_gen_0/BRAM_PORTA"
+        ]
+      },
+      "BRAM_PORTB_0_1": {
+        "interface_ports": [
+          "BRAM_PORTB_0",
+          "blk_mem_gen_0/BRAM_PORTB"
         ]
       }
     }

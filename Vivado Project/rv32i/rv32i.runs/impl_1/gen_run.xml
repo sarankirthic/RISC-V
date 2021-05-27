@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1622101863">
+<GenRun Id="impl_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1622109786">
   <File Type="BITSTR-BMM" Name="anton_mcu_top_bd.bmm"/>
   <File Type="OPT-METHODOLOGY-DRC" Name="anton_mcu_top_methodology_drc_opted.rpt"/>
   <File Type="INIT-TIMING" Name="anton_mcu_top_timing_summary_init.rpt"/>
@@ -291,7 +291,6 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="Data_RAM_blk_mem_gen_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="PLL_clk_wiz_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="BRAM_32B_SDP_blk_mem_gen_0_0"/>
 </GenRun>

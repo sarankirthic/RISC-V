@@ -1,12 +1,12 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  --include "../../../../rv32i.gen/sources_1/bd/PLL/ipshared/d0f7" \
-"../../../../rv32i.ip_user_files/bd/Data_RAM/ip/Data_RAM_blk_mem_gen_0_0/sim/Data_RAM_blk_mem_gen_0_0.v" \
 "../../../../rv32i.ip_user_files/bd/PLL/ip/PLL_clk_wiz_0_0/PLL_clk_wiz_0_0_clk_wiz.v" \
 "../../../../rv32i.ip_user_files/bd/PLL/ip/PLL_clk_wiz_0_0/PLL_clk_wiz_0_0.v" \
 "../../../../rv32i.ip_user_files/bd/BRAM_32B_SDP/ip/BRAM_32B_SDP_blk_mem_gen_0_0/sim/BRAM_32B_SDP_blk_mem_gen_0_0.v" \
 "../../../../rv32i.ip_user_files/bd/Instr_ROM/ip/Instr_ROM_blk_mem_gen_0_0/sim/Instr_ROM_blk_mem_gen_0_0.v" \
 "../../../../rv32i.ip_user_files/bd/Instr_ROM/sim/Instr_ROM.v" \
 "../../../../rv32i.ip_user_files/bd/BRAM_32B_SDP/sim/BRAM_32B_SDP.v" \
+"../../../../rv32i.ip_user_files/bd/Data_RAM/ip/Data_RAM_blk_mem_gen_0_0/sim/Data_RAM_blk_mem_gen_0_0.v" \
 "../../../../rv32i.ip_user_files/bd/Data_RAM/sim/Data_RAM.v" \
 
 sv xil_defaultlib  --include "../../../../rv32i.gen/sources_1/bd/PLL/ipshared/d0f7" \

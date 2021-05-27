@@ -23,7 +23,7 @@
 module anton_mcu_top(
     input i_clk_100M,
     input i_reset,
-    output o_clk,
+    /*output o_clk,
     output o_locked,
     output [31:0] o_instr_addr,
     output [31:0] o_instr,
@@ -44,7 +44,7 @@ module anton_mcu_top(
     output [31:0] o_dm_addr,
     output [31:0] o_dm_out,
     output [31:0] o_dm_in,
-    output o_done,
+    output o_done,*/
     output o_portA[16]
     );
     
@@ -151,21 +151,5 @@ module anton_mcu_top(
     assign o_portA[13] = w_portA[13];
     assign o_portA[14] = w_portA[14];
     assign o_portA[15] = w_portA[15];
-    /*assign o_portA[16] = w_portA[16];
-    assign o_portA[17] = w_portA[17];
-    assign o_portA[18] = w_portA[18];
-    assign o_portA[19] = w_portA[19];
-    assign o_portA[20] = w_portA[20];
-    assign o_portA[21] = w_portA[21];
-    assign o_portA[22] = w_portA[22];
-    assign o_portA[23] = w_portA[23];
-    assign o_portA[24] = w_portA[24];
-    assign o_portA[25] = w_portA[25];
-    assign o_portA[26] = w_portA[26];
-    assign o_portA[27] = w_portA[27];
-    assign o_portA[28] = w_portA[28];
-    assign o_portA[29] = w_portA[29];
-    assign o_portA[30] = w_portA[30];
-    assign o_portA[31] = w_portA[31];*/
     
 endmodule

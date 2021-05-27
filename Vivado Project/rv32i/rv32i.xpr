@@ -46,20 +46,20 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSABoardId" Val="arty-a7-35"/>
-    <Option Name="WTXSimLaunchSim" Val="476"/>
+    <Option Name="WTXSimLaunchSim" Val="480"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="46"/>
-    <Option Name="WTModelSimExportSim" Val="46"/>
-    <Option Name="WTQuestaExportSim" Val="46"/>
-    <Option Name="WTIesExportSim" Val="46"/>
-    <Option Name="WTVcsExportSim" Val="46"/>
-    <Option Name="WTRivieraExportSim" Val="46"/>
-    <Option Name="WTActivehdlExportSim" Val="46"/>
+    <Option Name="WTXSimExportSim" Val="51"/>
+    <Option Name="WTModelSimExportSim" Val="51"/>
+    <Option Name="WTQuestaExportSim" Val="51"/>
+    <Option Name="WTIesExportSim" Val="51"/>
+    <Option Name="WTVcsExportSim" Val="51"/>
+    <Option Name="WTRivieraExportSim" Val="51"/>
+    <Option Name="WTActivehdlExportSim" Val="51"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -83,9 +83,6 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="Instr_ROM.bd" FileRelPathName="ip/Instr_ROM_blk_mem_gen_0_0/Instr_ROM_blk_mem_gen_0_0.xci">
-          <Proxy FileSetName="Instr_ROM_blk_mem_gen_0_0"/>
-        </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/bd/BRAM_32B_SDP/BRAM_32B_SDP.bd">
         <FileInfo>
@@ -107,9 +104,6 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="Data_RAM.bd" FileRelPathName="ip/Data_RAM_blk_mem_gen_0_0/Data_RAM_blk_mem_gen_0_0.xci">
-          <Proxy FileSetName="Data_RAM_blk_mem_gen_0_0"/>
-        </CompFileExtendedInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/alu.sv">
         <FileInfo>
@@ -393,12 +387,6 @@
         <Option Name="TopAutoSet" Val="TRUE"/>
       </Config>
     </FileSet>
-    <FileSet Name="Data_RAM_blk_mem_gen_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Data_RAM_blk_mem_gen_0_0" RelGenDir="$PGENDIR/Data_RAM_blk_mem_gen_0_0">
-      <Config>
-        <Option Name="TopModule" Val="Data_RAM_blk_mem_gen_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
     <FileSet Name="PLL_clk_wiz_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/PLL_clk_wiz_0_0" RelGenDir="$PGENDIR/PLL_clk_wiz_0_0">
       <Config>
         <Option Name="TopModule" Val="PLL_clk_wiz_0_0"/>
@@ -408,12 +396,6 @@
     <FileSet Name="BRAM_32B_SDP_blk_mem_gen_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/BRAM_32B_SDP_blk_mem_gen_0_0" RelGenDir="$PGENDIR/BRAM_32B_SDP_blk_mem_gen_0_0">
       <Config>
         <Option Name="TopModule" Val="BRAM_32B_SDP_blk_mem_gen_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="Instr_ROM_blk_mem_gen_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/Instr_ROM_blk_mem_gen_0_0" RelGenDir="$PGENDIR/Instr_ROM_blk_mem_gen_0_0">
-      <Config>
-        <Option Name="TopModule" Val="Instr_ROM_blk_mem_gen_0_0"/>
         <Option Name="UseBlackboxStub" Val="1"/>
       </Config>
     </FileSet>
@@ -447,16 +429,6 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="Data_RAM_blk_mem_gen_0_0_synth_1" Type="Ft3:Synth" SrcSet="Data_RAM_blk_mem_gen_0_0" Part="xc7a35ticsg324-1L" ConstrsSet="Data_RAM_blk_mem_gen_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Data_RAM_blk_mem_gen_0_0_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PPRDIR/../../../../../../../HobbyProjects/Electronics/FPGAProjetcs/riscv_j/riscv_j.srcs/utils_1/imports/Data_RAM_blk_mem_gen_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2020"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
     <Run Id="PLL_clk_wiz_0_0_synth_1" Type="Ft3:Synth" SrcSet="PLL_clk_wiz_0_0" Part="xc7a35ticsg324-1L" ConstrsSet="PLL_clk_wiz_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/PLL_clk_wiz_0_0_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PPRDIR/../../../../../../../HobbyProjects/Electronics/FPGAProjetcs/riscv_j/riscv_j.srcs/utils_1/imports/PLL_clk_wiz_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020"/>
@@ -468,18 +440,6 @@
       <RQSFiles/>
     </Run>
     <Run Id="BRAM_32B_SDP_blk_mem_gen_0_0_synth_1" Type="Ft3:Synth" SrcSet="BRAM_32B_SDP_blk_mem_gen_0_0" Part="xc7a35ticsg324-1L" ConstrsSet="BRAM_32B_SDP_blk_mem_gen_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/BRAM_32B_SDP_blk_mem_gen_0_0_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/BRAM_32B_SDP_blk_mem_gen_0_0_synth_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2020"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="Instr_ROM_blk_mem_gen_0_0_synth_1" Type="Ft3:Synth" SrcSet="Instr_ROM_blk_mem_gen_0_0" Part="xc7a35ticsg324-1L" ConstrsSet="Instr_ROM_blk_mem_gen_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/Instr_ROM_blk_mem_gen_0_0_synth_1" IncludeInArchive="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Instr_ROM_blk_mem_gen_0_0_synth_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2020">
           <Desc>Vivado Synthesis Defaults</Desc>
@@ -509,23 +469,6 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="Data_RAM_blk_mem_gen_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a35ticsg324-1L" ConstrsSet="Data_RAM_blk_mem_gen_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Data_RAM_blk_mem_gen_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PPRDIR/../../../../../../../HobbyProjects/Electronics/FPGAProjetcs/riscv_j/riscv_j.srcs/utils_1/imports/Data_RAM_blk_mem_gen_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2020"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
     <Run Id="PLL_clk_wiz_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a35ticsg324-1L" ConstrsSet="PLL_clk_wiz_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="PLL_clk_wiz_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PPRDIR/../../../../../../../HobbyProjects/Electronics/FPGAProjetcs/riscv_j/riscv_j.srcs/utils_1/imports/PLL_clk_wiz_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
@@ -544,25 +487,6 @@
       <RQSFiles/>
     </Run>
     <Run Id="BRAM_32B_SDP_blk_mem_gen_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a35ticsg324-1L" ConstrsSet="BRAM_32B_SDP_blk_mem_gen_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="BRAM_32B_SDP_blk_mem_gen_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/BRAM_32B_SDP_blk_mem_gen_0_0_impl_1">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2020"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-      <RQSFiles/>
-    </Run>
-    <Run Id="Instr_ROM_blk_mem_gen_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7a35ticsg324-1L" ConstrsSet="Instr_ROM_blk_mem_gen_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="Instr_ROM_blk_mem_gen_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/Instr_ROM_blk_mem_gen_0_0_impl_1">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020">
           <Desc>Default settings for Implementation.</Desc>

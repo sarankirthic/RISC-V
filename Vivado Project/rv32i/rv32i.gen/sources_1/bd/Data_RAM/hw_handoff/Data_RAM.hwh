@@ -1,9 +1,29 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu May 27 13:05:14 2021" VIVADOVERSION="2020.2">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu May 27 15:29:49 2021" VIVADOVERSION="2020.2">
 
   <SYSTEMINFO ARCH="artix7" BOARD="digilentinc.com:arty-a7-35:part0:1.0" DEVICE="7a35ti" NAME="Data_RAM" PACKAGE="csg324" SPEEDGRADE="-1L"/>
 
   <EXTERNALPORTS>
+    <PORT DIR="I" LEFT="14" NAME="BRAM_PORTB_0_addr" RIGHT="0" SIGIS="undef" SIGNAME="blk_mem_gen_0_addrb">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="blk_mem_gen_0" PORT="addrb"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="BRAM_PORTB_0_clk" SIGIS="clk" SIGNAME="blk_mem_gen_0_clkb">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="blk_mem_gen_0" PORT="clkb"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="31" NAME="BRAM_PORTB_0_dout" RIGHT="0" SIGIS="undef" SIGNAME="blk_mem_gen_0_doutb">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="blk_mem_gen_0" PORT="doutb"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="BRAM_PORTB_0_en" SIGIS="undef" SIGNAME="blk_mem_gen_0_enb">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="blk_mem_gen_0" PORT="enb"/>
+      </CONNECTIONS>
+    </PORT>
     <PORT DIR="I" LEFT="14" NAME="BRAM_PORTA_0_addr" RIGHT="0" SIGIS="undef" SIGNAME="blk_mem_gen_0_addra">
       <CONNECTIONS>
         <CONNECTION INSTANCE="blk_mem_gen_0" PORT="addra"/>
@@ -27,26 +47,6 @@
     <PORT DIR="I" LEFT="0" NAME="BRAM_PORTA_0_we" RIGHT="0" SIGIS="undef" SIGNAME="blk_mem_gen_0_wea">
       <CONNECTIONS>
         <CONNECTION INSTANCE="blk_mem_gen_0" PORT="wea"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" LEFT="14" NAME="BRAM_PORTB_0_addr" RIGHT="0" SIGIS="undef" SIGNAME="blk_mem_gen_0_addrb">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="blk_mem_gen_0" PORT="addrb"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="BRAM_PORTB_0_clk" SIGIS="clk" SIGNAME="blk_mem_gen_0_clkb">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="blk_mem_gen_0" PORT="clkb"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="O" LEFT="31" NAME="BRAM_PORTB_0_dout" RIGHT="0" SIGIS="undef" SIGNAME="blk_mem_gen_0_doutb">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="blk_mem_gen_0" PORT="doutb"/>
-      </CONNECTIONS>
-    </PORT>
-    <PORT DIR="I" NAME="BRAM_PORTB_0_en" SIGIS="undef" SIGNAME="blk_mem_gen_0_enb">
-      <CONNECTIONS>
-        <CONNECTION INSTANCE="blk_mem_gen_0" PORT="enb"/>
       </CONNECTIONS>
     </PORT>
   </EXTERNALPORTS>
