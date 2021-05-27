@@ -19,16 +19,16 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-
 module core_top(
     input i_clk_100M,
     input i_reset_n,
+    input [31:0] i_instr_mem,
+    input i_dm_valid,
+    input [31:0] i_dm_out,
+    output [31:0] o_instr_addr,
     output [31:0] o_instr,
     output o_instr_valid,
     output [31:0] o_pc,
-    output o_add,
-    output o_and,
-    output o_or,
     output o_rs1_valid,
     output o_rs2_valid,
     output o_rd_valid,
@@ -40,6 +40,7 @@ module core_top(
     output [31:0] o_port_rs1,
     output [31:0] o_port_rs2,
     output o_dm_valid,
+    output o_dm_en,
     output o_dm_we,
     output [31:0] o_dm_addr,
     output [31:0] o_dm_out,
@@ -72,6 +73,8 @@ module core_top(
         .i_reset_n(i_reset_n),
         .i_output_en(w_output_en),
         .i_instr_addr(w_pc),
+        .i_instr_mem(i_instr_mem),
+        .o_instr_addr(o_instr_addr),
         .o_instr_valid(w_instr_valid),
         .o_instr(w_instr)
     );
@@ -87,58 +90,12 @@ module core_top(
     
     wire w_i_type, w_r_type;
     
-    wire w_add;
-    wire w_sub; 
-    wire w_sll; 
-    wire w_slt; 
-    wire w_sltu; 
-    wire w_xor; 
-    wire w_srl; 
-    wire w_sra; 
-    wire w_or; 
-    wire w_and; 
-    wire w_slli; 
-    wire w_srli; 
-    wire w_srai; 
-    wire w_addi; 
-    wire w_slti; 
-    wire w_sltiu; 
-    wire w_xori; 
-    wire w_ori; 
-    wire w_andi; 
-    wire w_fence; 
-    wire w_lb; 
-    wire w_lh; 
-    wire w_lw; 
-    wire w_lbu; 
-    wire w_lhu; 
-    wire w_ebreak; 
-    wire w_ecall; 
-    wire w_sb; 
-    wire w_sh; 
-    wire w_sw; 
-    wire w_beq; 
-    wire w_bne; 
-    wire w_blt; 
-    wire w_bge; 
-    wire w_bltu; 
-    wire w_bgeu; 
-    wire w_lui; 
-    wire w_auipc; 
-    wire w_jal;
-    wire w_jalr;
-    
     wire [5:0] w_load_type;
     wire [2:0] w_store_type;
-    wire [5:0] w_branch_type;
+    wire [7:0] w_branch_type;
     wire [3:0] w_arithmetic;
     wire [9:0] w_logical;
     wire [5:0] w_shift;
-    
-    
-    assign o_add = w_add;
-    assign o_and = w_and;
-    assign o_or = w_or;
     
     //instantiate instruction decode unit
     instr_decode instr_decode_inst1(
@@ -156,46 +113,6 @@ module core_top(
         .o_imm(w_imm),
         .o_i_type(w_i_type),
         .o_r_type(w_r_type),
-        .o_add(w_add),
-        .o_sub(w_sub), 
-        .o_sll(w_sll), 
-        .o_slt(w_slt), 
-        .o_sltu(w_sltu), 
-        .o_xor(w_xor), 
-        .o_srl(w_srl), 
-        .o_sra(w_sra), 
-        .o_or(w_or), 
-        .o_and(w_and), 
-        .o_slli(w_slli), 
-        .o_srli(w_srli), 
-        .o_srai(w_srai), 
-        .o_addi(w_addi), 
-        .o_slti(w_slti), 
-        .o_sltiu(w_sltiu), 
-        .o_xori(w_xori), 
-        .o_ori(w_ori), 
-        .o_andi(w_andi), 
-        .o_fence(w_fence), 
-        .o_lb(w_lb), 
-        .o_lh(w_lh), 
-        .o_lw(w_lw), 
-        .o_lbu(w_lbu), 
-        .o_lhu(w_lhu), 
-        .o_ebreak(w_ebreak), 
-        .o_ecall(w_ecall), 
-        .o_sb(w_sb), 
-        .o_sh(w_sh), 
-        .o_sw(w_sw), 
-        .o_beq(w_beq), 
-        .o_bne(w_bne), 
-        .o_blt(w_blt), 
-        .o_bge(w_bge), 
-        .o_bltu(w_bltu), 
-        .o_bgeu(w_bgeu), 
-        .o_lui(w_lui), 
-        .o_auipc(w_auipc), 
-        .o_jal(w_jal),
-        .o_jalr(w_jalr),
         .o_load_type(w_load_type),
         .o_store_type(w_store_type),
         .o_branch_type(w_branch_type),
@@ -212,13 +129,10 @@ module core_top(
     wire [31:0] w_rf_port_rs2;
     wire w_mmu_done;
     
-    wire w_rf_wr_valid = w_ret_addr_valid;
-    //wire w_rf_wr_valid = (w_rf_rs1_valid && w_rf_rs1_valid && w_r_type);
-    /*wire [31:0] w_rf_wr_data = w_result_valid ? w_alu_result :
+    wire w_rf_wr_valid = w_result_valid || w_ret_addr_valid;
+    wire [31:0] w_rf_wr_data = w_rf_wr_valid ? (w_alu_result) :
                                w_ret_addr_valid ? w_ret_addr :
-                               0;*/
-    wire [31:0] w_rf_wr_data = w_rf_wr_valid ? (w_alu_result) : 32'b0;                               
-    //wire [31:0] w_rf_wr_data = w_rf_wr_valid ? (w_rf_port_rs1 + w_rf_port_rs2) : 32'b0;
+                               32'b0;                               
     
     mmu mmu_inst1(
         .i_clk_100M(i_clk_100M),
@@ -235,12 +149,15 @@ module core_top(
         .i_rd_addr(w_rd),
         .i_rf_wr_data(w_rf_wr_data),
         .i_imm(w_imm),
+        .i_dm_valid(i_dm_valid),
+        .i_dm_out(i_dm_out),
         .o_rf_rs1_valid(w_rf_rs1_valid),
         .o_rf_rs2_valid(w_rf_rs2_valid),
         .o_rf_out_data_rs1(w_rf_port_rs1),
         .o_rf_out_data_rs2(w_rf_port_rs2),
         .o_dm_valid(o_dm_valid),
         .o_dm_we(o_dm_we),
+        .o_dm_en(o_dm_en),
         .o_dm_addr(o_dm_addr),
         .o_dm_out(o_dm_out),
         .o_dm_in(o_dm_in),
@@ -253,7 +170,6 @@ module core_top(
         .i_shift(w_shift),
         .i_i_type(w_i_type),
         .i_r_type(w_r_type),
-        .i_jalr(w_jalr),
         .i_rf_rs1_valid(w_rf_rs1_valid),
         .i_rf_rs2_valid(w_rf_rs2_valid),
         .i_imm_valid(w_imm_valid),
@@ -297,8 +213,7 @@ module core_top(
     assign w_load_en = (w_branch_taken && w_new_pc_valid);
     assign w_load_pc = w_new_pc;
     
-    assign w_count_en = w_mmu_done;
-    //assign w_count_en = (!w_new_pc_valid) ? w_mmu_done : 1'b0;
+    assign w_count_en = (!w_new_pc_valid) ? w_mmu_done : 1'b0;
     
     assign o_rs1_valid = w_rs1_valid;
     assign o_rs2_valid = w_rs2_valid;

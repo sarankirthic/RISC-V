@@ -34,12 +34,15 @@ module mmu(
     input [4:0] i_rs2_addr,
     input [4:0] i_rd_addr,
     input [31:0] i_rf_wr_data,
-    input [31:0] i_imm,   
+    input [31:0] i_imm,
+    input i_dm_valid,
+    input [31:0] i_dm_out,   
     output o_rf_rs1_valid,
     output o_rf_rs2_valid,
     output [31:0] o_rf_out_data_rs1,
     output [31:0] o_rf_out_data_rs2,
     output o_dm_valid,
+    output o_dm_en,
     output o_dm_we,
     output [31:0] o_dm_addr,
     output [31:0] o_dm_out,
@@ -69,7 +72,7 @@ module mmu(
                                    w_sb ? {24'b0, o_rf_out_data_rs2[7:0]} :
                                    32'b0;                                                               
     
-    data_mem data_mem_inst1(
+    /*data_mem data_mem_inst1(
         .i_clk_100M(i_clk_100M),
         .i_dm_en(w_dm_en),
         .i_data_addr(w_dm_addr),
@@ -77,7 +80,7 @@ module mmu(
         .i_data_we(w_dm_we),
         .o_dm_valid(o_dm_valid),
         .o_mem_data(o_dm_out)
-    );
+    );*/
     
     reg r_dm_we_del_1;
     
@@ -88,9 +91,12 @@ module mmu(
     
     wire w_store_done = (w_dm_we && r_dm_we_del_1);
     
+    assign o_dm_en = w_dm_en;
     assign o_dm_we = w_dm_we;
     assign o_dm_in = w_dm_in;
     assign o_dm_addr = w_dm_addr;
+    assign o_dm_valid = i_dm_valid;
+    assign o_dm_out = i_dm_out;
     
     /*wire w_rf_wr_valid = i_rd_valid ? ((w_load == 0) && (w_store == 0) && i_rf_wr_vaild) || ((w_load != 0 && o_dm_valid) || w_lui) ? 1'b1: 1'b0) :
                          1'b0;*/

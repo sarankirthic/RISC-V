@@ -35,46 +35,6 @@ module instr_decode(
     output [31:0] o_imm,
     output o_i_type,
     output o_r_type,
-    output o_add,
-    output o_sub, 
-    output o_sll, 
-    output o_slt,
-    output o_sltu, 
-    output o_xor, 
-    output o_srl, 
-    output o_sra, 
-    output o_or, 
-    output o_and, 
-    output o_slli, 
-    output o_srli, 
-    output o_srai, 
-    output o_addi, 
-    output o_slti, 
-    output o_sltiu, 
-    output o_xori, 
-    output o_ori, 
-    output o_andi, 
-    output o_fence, 
-    output o_lb, 
-    output o_lh, 
-    output o_lw, 
-    output o_lbu, 
-    output o_lhu, 
-    output o_ebreak, 
-    output o_ecall, 
-    output o_sb, 
-    output o_sh, 
-    output o_sw, 
-    output o_beq, 
-    output o_bne, 
-    output o_blt, 
-    output o_bge, 
-    output o_bltu, 
-    output o_bgeu, 
-    output o_lui, 
-    output o_auipc, 
-    output o_jal,
-    output o_jalr,
     output [5:0] o_load_type,
     output [2:0] o_store_type,
     output [7:0] o_branch_type,
@@ -120,107 +80,107 @@ module instr_decode(
                              (w_i_type && (i_instr[6:2] == 5'b11100)) ? {i_instr[20],w_funct3,i_instr[6:0]} :
                               11'b0;
     //R type instructions    
-    assign o_add = (w_funct_op == 11'b0_000_0110011);
-    assign o_sub = (w_funct_op == 11'b1_000_0110011); 
-    assign o_sll = (w_funct_op == 11'b0_001_0110011);
-    assign o_slt = (w_funct_op == 11'b0_010_0110011);
-    assign o_sltu = (w_funct_op == 11'b0_011_0110011);
-    assign o_xor = (w_funct_op == 11'b0_100_0110011);
-    assign o_srl = (w_funct_op == 11'b0_101_0110011);
-    assign o_sra = (w_funct_op == 11'b1_101_0110011);
-    assign o_or = (w_funct_op == 11'b0_110_0110011);
-    assign o_and = (w_funct_op == 11'b0_111_0110011);
+    wire w_add = (w_funct_op == 11'b0_000_0110011);
+    wire w_sub = (w_funct_op == 11'b1_000_0110011); 
+    wire w_sll = (w_funct_op == 11'b0_001_0110011);
+    wire w_slt = (w_funct_op == 11'b0_010_0110011);
+    wire w_sltu = (w_funct_op == 11'b0_011_0110011);
+    wire w_xor = (w_funct_op == 11'b0_100_0110011);
+    wire w_srl = (w_funct_op == 11'b0_101_0110011);
+    wire w_sra = (w_funct_op == 11'b1_101_0110011);
+    wire w_or = (w_funct_op == 11'b0_110_0110011);
+    wire w_and = (w_funct_op == 11'b0_111_0110011);
     
     //I type instructions
-    assign o_slli = (w_funct_op == 11'b0_001_0010011);
-    assign o_srli = (w_funct_op == 11'b0_101_0010011);
-    assign o_srai = (w_funct_op == 11'b1_101_0010011);
-    assign o_addi = (w_funct_op inside {11'b?_000_0010011});
-    assign o_slti = (w_funct_op inside {11'b?_010_0010011});
-    assign o_sltiu = (w_funct_op inside {11'b?_011_0010011});
-    assign o_xori = (w_funct_op inside {11'b?_100_0010011});
-    assign o_ori = (w_funct_op inside {11'b?_110_0010011});
-    assign o_andi = (w_funct_op inside {11'b?_111_0010011});
-    assign o_fence = (w_funct_op inside {11'b?_000_0001111});
+    wire w_slli = (w_funct_op == 11'b0_001_0010011);
+    wire w_srli = (w_funct_op == 11'b0_101_0010011);
+    wire w_srai = (w_funct_op == 11'b1_101_0010011);
+    wire w_addi = (w_funct_op inside {11'b?_000_0010011});
+    wire w_slti = (w_funct_op inside {11'b?_010_0010011});
+    wire w_sltiu = (w_funct_op inside {11'b?_011_0010011});
+    wire w_xori = (w_funct_op inside {11'b?_100_0010011});
+    wire w_ori = (w_funct_op inside {11'b?_110_0010011});
+    wire w_andi = (w_funct_op inside {11'b?_111_0010011});
+    wire w_fence = (w_funct_op inside {11'b?_000_0001111});
     //I type Jump Intruction
-    assign o_jalr = (w_funct_op inside {11'b?_000_1100111});
+    wire w_jalr = (w_funct_op inside {11'b?_000_1100111});
     //I type Load instructions
-    assign o_lb = (w_funct_op inside {11'b?_000_0000011});
-    assign o_lh = (w_funct_op inside {11'b?_001_0000011});
-    assign o_lw = (w_funct_op inside {11'b?_010_0000011});
-    assign o_lbu = (w_funct_op inside {11'b?_100_0000011});
-    assign o_lhu = (w_funct_op inside {11'b?_101_0000011});
+    wire w_lb = (w_funct_op inside {11'b?_000_0000011});
+    wire w_lh = (w_funct_op inside {11'b?_001_0000011});
+    wire w_lw = (w_funct_op inside {11'b?_010_0000011});
+    wire w_lbu = (w_funct_op inside {11'b?_100_0000011});
+    wire w_lhu = (w_funct_op inside {11'b?_101_0000011});
     //I type ecall ebreak (debugging instrtuctions)
-    assign o_ebreak = (w_funct_op == 11'b0_000_1110011);
-    assign o_ecall = (w_funct_op == 11'b1_000_1110011);
+    wire w_ebreak = (w_funct_op == 11'b0_000_1110011);
+    wire w_ecall = (w_funct_op == 11'b1_000_1110011);
     
     //S type instructions
-    assign o_sb = (w_funct_op == 11'b0_000_0100011);    //Store Byte
-    assign o_sh = (w_funct_op == 11'b0_001_0100011);    //Store Halfword
-    assign o_sw = (w_funct_op == 11'b0_010_0100011);    //Store Word
+    wire w_sb = (w_funct_op == 11'b0_000_0100011);    //Store Byte
+    wire w_sh = (w_funct_op == 11'b0_001_0100011);    //Store Halfword
+    wire w_sw = (w_funct_op == 11'b0_010_0100011);    //Store Word
     
     //B type instructions
-    assign o_beq = (w_funct_op == 11'b0_000_1100011);
-    assign o_bne = (w_funct_op == 11'b0_001_1100011);
-    assign o_blt = (w_funct_op == 11'b0_100_1100011);
-    assign o_bge = (w_funct_op == 11'b0_101_1100011);
-    assign o_bltu = (w_funct_op == 11'b0_110_1100011);
-    assign o_bgeu = (w_funct_op == 11'b0_111_1100011);
+    wire w_beq = (w_funct_op == 11'b0_000_1100011);
+    wire w_bne = (w_funct_op == 11'b0_001_1100011);
+    wire w_blt = (w_funct_op == 11'b0_100_1100011);
+    wire w_bge = (w_funct_op == 11'b0_101_1100011);
+    wire w_bltu = (w_funct_op == 11'b0_110_1100011);
+    wire w_bgeu = (w_funct_op == 11'b0_111_1100011);
     
     //U type instructions
-    assign o_lui = (w_funct_op == 11'b0_000_0110111);  //Load Upper Immediate
-    assign o_auipc = (w_funct_op == 11'b0_000_0010111);
+    wire w_lui = (w_funct_op == 11'b0_000_0110111);  //Load Upper Immediate
+    wire w_auipc = (w_funct_op == 11'b0_000_0010111);
     
     //J type instructions
-    assign o_jal = (w_funct_op == 11'b0_000_1101111);
+    wire w_jal = (w_funct_op == 11'b0_000_1101111);
     
-    assign o_load_type = o_lui ? 6'b000001 :
-                         o_lb  ? 6'b000010 :
-                         o_lh  ? 6'b000100 :
-                         o_lw  ? 6'b001000 :
-                         o_lbu ? 6'b010000 :
-                         o_lhu ? 6'b100000 :
+    assign o_load_type = w_lui ? 6'b000001 :
+                         w_lb  ? 6'b000010 :
+                         w_lh  ? 6'b000100 :
+                         w_lw  ? 6'b001000 :
+                         w_lbu ? 6'b010000 :
+                         w_lhu ? 6'b100000 :
                          6'b000000;
                          
-   assign o_store_type = o_sb ? 3'b001 :
-                         o_sh ? 3'b010 :
-                         o_sw ? 3'b100 :
+   assign o_store_type = w_sb ? 3'b001 :
+                         w_sh ? 3'b010 :
+                         w_sw ? 3'b100 :
                          3'b000;
                          
-    assign o_branch_type = o_beq ? 8'b0000_0001 :
-                           o_bne ? 8'b0000_0010 :
-                           o_blt ? 8'b0000_0100 :
-                           o_bge ? 8'b0000_1000 :
-                           o_bltu ? 8'b0001_0000 :
-                           o_bgeu ? 8'b0010_0000 :
-                           o_jalr ? 8'b0100_0000 :
-                           o_jal ? 8'b1000_0000 :
+    assign o_branch_type = w_beq ? 8'b0000_0001 :
+                           w_bne ? 8'b0000_0010 :
+                           w_blt ? 8'b0000_0100 :
+                           w_bge ? 8'b0000_1000 :
+                           w_bltu ? 8'b0001_0000 :
+                           w_bgeu ? 8'b0010_0000 :
+                           w_jalr ? 8'b0100_0000 :
+                           w_jal ? 8'b1000_0000 :
                            0;
                            
-    assign o_arithmetic = o_addi ? 4'b0001 :
-                          o_add ? 4'b0010 :
-                          o_sub ? 4'b0100 :
-                          o_auipc ? 4'b1000 :
+    assign o_arithmetic = w_addi ? 4'b0001 :
+                          w_add ? 4'b0010 :
+                          w_sub ? 4'b0100 :
+                          w_auipc ? 4'b1000 :
                           0;
                           
-    assign o_logical = o_slti ? 10'b0000_0000_01 :
-                       o_sltiu ? 10'b0000_0000_10 :
-                       o_xori ? 10'b0000_0001_00 :
-                       o_ori ? 10'b0000_0010_00 :
-                       o_andi ? 10'b0000_0100_00 :
-                       o_slt ? 10'b0000_1000_00 :
-                       o_sltu ? 10'b0001_0000_00 :
-                       o_xor ? 10'b0010_0000_00 :
-                       o_or ? 10'b0100_0000_00 :
-                       o_and ? 10'b1000_0000_00 :
+    assign o_logical = w_slti ? 10'b0000_0000_01 :
+                       w_sltiu ? 10'b0000_0000_10 :
+                       w_xori ? 10'b0000_0001_00 :
+                       w_ori ? 10'b0000_0010_00 :
+                       w_andi ? 10'b0000_0100_00 :
+                       w_slt ? 10'b0000_1000_00 :
+                       w_sltu ? 10'b0001_0000_00 :
+                       w_xor ? 10'b0010_0000_00 :
+                       w_or ? 10'b0100_0000_00 :
+                       w_and ? 10'b1000_0000_00 :
                        0;
                        
-    assign o_shift = o_slli ? 6'b000_001 :
-                     o_srli ? 6'b000_010 :
-                     o_srai ? 6'b000_100 :
-                     o_sll ? 6'b001_000 :
-                     o_srl ? 6'b010_000 :
-                     o_sra ? 6'b100_000 :
+    assign o_shift = w_slli ? 6'b000_001 :
+                     w_srli ? 6'b000_010 :
+                     w_srai ? 6'b000_100 :
+                     w_sll ? 6'b001_000 :
+                     w_srl ? 6'b010_000 :
+                     w_sra ? 6'b100_000 :
                      0;                     
                                                                                                                                   
 endmodule

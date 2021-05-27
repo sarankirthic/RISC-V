@@ -64,10 +64,9 @@ module branch_control(
                                                  1'b1 :
                             1'b0;
     assign o_new_pc = !(w_jalr ) ? (i_pc + i_imm) : (i_rf_rs1_data + i_imm);
-    assign o_ret_addr_valid = 1'b0;
-    /*assign o_ret_addr_valid = w_branch_operation ? (w_jal || w_jalr) ? 1'b1 :
+    assign o_ret_addr_valid = w_branch_operation ? (w_jal || w_jalr) ? 1'b1 :
                                                     1'b0 :
-                              1'b0;*/
+                              1'b0;
     assign o_ret_addr = i_pc + 4;
     
 endmodule

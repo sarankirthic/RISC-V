@@ -30,15 +30,15 @@ module data_mem(
     output [31:0] o_mem_data
     );
     
-    wire [15:0] w_dm_addr = i_data_addr[15:0];
+   wire [14:0] w_dm_addr = i_data_addr[14:0];
     
    Data_RAM Data_RAM_1
-       (.BRAM_PORTA_0_addr(i_data_addr),
+       (.BRAM_PORTA_0_addr(w_dm_addr),
         .BRAM_PORTA_0_clk(i_clk_100M),
         .BRAM_PORTA_0_din(i_data_in),
         .BRAM_PORTA_0_en(i_dm_en),
         .BRAM_PORTA_0_we(i_data_we),
-        .BRAM_PORTB_0_addr(i_data_addr),
+        .BRAM_PORTB_0_addr(w_dm_addr),
         .BRAM_PORTB_0_clk(i_clk_100M),
         .BRAM_PORTB_0_dout(o_mem_data),
         .BRAM_PORTB_0_en(i_dm_en));

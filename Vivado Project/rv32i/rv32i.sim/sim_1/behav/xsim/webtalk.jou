@@ -2,11 +2,11 @@
 # Webtalk v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Sun May 23 12:52:06 2021
-# Process ID: 7272
-# Current directory: D:/Harid/HobbyProjects/Electronics/FPGAProjetcs/riscv_j/riscv_j.sim/sim_1/behav/xsim
-# Command line: wbtcv.exe -mode batch -source D:/Harid/HobbyProjects/Electronics/FPGAProjetcs/riscv_j/riscv_j.sim/sim_1/behav/xsim/xsim.dir/core_top_tb_behav/webtalk/xsim_webtalk.tcl -notrace
-# Log file: D:/Harid/HobbyProjects/Electronics/FPGAProjetcs/riscv_j/riscv_j.sim/sim_1/behav/xsim/webtalk.log
-# Journal file: D:/Harid/HobbyProjects/Electronics/FPGAProjetcs/riscv_j/riscv_j.sim/sim_1/behav/xsim\webtalk.jou
+# Start of session at: Thu May 27 11:14:31 2021
+# Process ID: 4344
+# Current directory: D:/Harid/College/Win 2020/ECE3003/Project/RISC-V/Vivado Project/rv32i/rv32i.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source D:/Harid/College/Win 2020/ECE3003/Project/RISC-V/Vivado Project/rv32i/rv32i.sim/sim_1/behav/xsim/xsim.dir/anton_mcu_top_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: D:/Harid/College/Win 2020/ECE3003/Project/RISC-V/Vivado Project/rv32i/rv32i.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: D:/Harid/College/Win 2020/ECE3003/Project/RISC-V/Vivado Project/rv32i/rv32i.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
-source D:/Harid/HobbyProjects/Electronics/FPGAProjetcs/riscv_j/riscv_j.sim/sim_1/behav/xsim/xsim.dir/core_top_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+source D:/Harid/College/Win -notrace

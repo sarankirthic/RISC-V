@@ -1,99 +1,99 @@
 {
-    "design": {
-        "design_info": {
-            "boundary_crc": "0x4FFADFBC68F3F72D",
-            "device": "xc7a35ticsg324-1L",
-            "gen_directory": "../../../../rv32i.gen/sources_1/bd/Instr_ROM",
-            "name": "Instr_ROM",
-            "rev_ctrl_bd_flag": "RevCtrlBdOff",
-            "synth_flow_mode": "Hierarchical",
-            "tool_version": "2020.2",
-            "validated": "true"
-        },
-        "design_tree": {
-            "blk_mem_gen_0": ""
-        },
-        "interface_ports": {
-            "BRAM_PORTA_0": {
-                "mode": "Slave",
-                "vlnv": "xilinx.com:interface:bram_rtl:1.0",
-                "parameters": {
-                    "MASTER_TYPE": {
-                        "value": "OTHER",
-                        "value_src": "default"
-                    },
-                    "MEM_ECC": {
-                        "value": "NONE",
-                        "value_src": "default"
-                    },
-                    "MEM_SIZE": {
-                        "value": "8192",
-                        "value_src": "default"
-                    },
-                    "MEM_WIDTH": {
-                        "value": "32",
-                        "value_src": "default"
-                    },
-                    "READ_LATENCY": {
-                        "value": "1",
-                        "value_src": "default"
-                    }
-                }
-            }
-        },
-        "components": {
-            "blk_mem_gen_0": {
-                "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
-                "xci_name": "Instr_ROM_blk_mem_gen_0_0",
-                "xci_path": "ip\\Instr_ROM_blk_mem_gen_0_0\\Instr_ROM_blk_mem_gen_0_0.xci",
-                "inst_hier_path": "blk_mem_gen_0",
-                "parameters": {
-                    "Coe_File": {
-                        "value": "instr_mem_contents.coe"
-                    },
-                    "Enable_32bit_Address": {
-                        "value": "true"
-                    },
-                    "Enable_A": {
-                        "value": "Always_Enabled"
-                    },
-                    "Fill_Remaining_Memory_Locations": {
-                        "value": "true"
-                    },
-                    "Load_Init_File": {
-                        "value": "true"
-                    },
-                    "Memory_Type": {
-                        "value": "Single_Port_ROM"
-                    },
-                    "Port_A_Write_Rate": {
-                        "value": "0"
-                    },
-                    "Register_PortA_Output_of_Memory_Primitives": {
-                        "value": "true"
-                    },
-                    "Remaining_Memory_Locations": {
-                        "value": "EDEDEDED"
-                    },
-                    "Use_RSTA_Pin": {
-                        "value": "false"
-                    },
-                    "Write_Depth_A": {
-                        "value": "25000"
-                    },
-                    "use_bram_block": {
-                        "value": "Stand_Alone"
-                    }
-                }
-            }
-        },
-        "interface_nets": {
-            "BRAM_PORTA_0_1": {
-                "interface_ports": [
-                    "BRAM_PORTA_0",
-                    "blk_mem_gen_0/BRAM_PORTA"
-                ]
-            }
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x4FFADFBC68F3F72D",
+      "device": "xc7a35ticsg324-1L",
+      "gen_directory": "../../../../rv32i.gen/sources_1/bd/Instr_ROM",
+      "name": "Instr_ROM",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2020.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "blk_mem_gen_0": ""
+    },
+    "interface_ports": {
+      "BRAM_PORTA_0": {
+        "mode": "Slave",
+        "vlnv": "xilinx.com:interface:bram_rtl:1.0",
+        "parameters": {
+          "MASTER_TYPE": {
+            "value": "OTHER",
+            "value_src": "default"
+          },
+          "MEM_ECC": {
+            "value": "NONE",
+            "value_src": "default"
+          },
+          "MEM_SIZE": {
+            "value": "8192",
+            "value_src": "default"
+          },
+          "MEM_WIDTH": {
+            "value": "32",
+            "value_src": "default"
+          },
+          "READ_LATENCY": {
+            "value": "1",
+            "value_src": "default"
+          }
         }
+      }
+    },
+    "components": {
+      "blk_mem_gen_0": {
+        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+        "xci_name": "Instr_ROM_blk_mem_gen_0_0",
+        "xci_path": "ip\\Instr_ROM_blk_mem_gen_0_0\\Instr_ROM_blk_mem_gen_0_0.xci",
+        "inst_hier_path": "blk_mem_gen_0",
+        "parameters": {
+          "Coe_File": {
+            "value": "instr_mem_contents.coe"
+          },
+          "Enable_32bit_Address": {
+            "value": "true"
+          },
+          "Enable_A": {
+            "value": "Always_Enabled"
+          },
+          "Fill_Remaining_Memory_Locations": {
+            "value": "true"
+          },
+          "Load_Init_File": {
+            "value": "true"
+          },
+          "Memory_Type": {
+            "value": "Single_Port_ROM"
+          },
+          "Port_A_Write_Rate": {
+            "value": "0"
+          },
+          "Register_PortA_Output_of_Memory_Primitives": {
+            "value": "true"
+          },
+          "Remaining_Memory_Locations": {
+            "value": "EDEDEDED"
+          },
+          "Use_RSTA_Pin": {
+            "value": "false"
+          },
+          "Write_Depth_A": {
+            "value": "25000"
+          },
+          "use_bram_block": {
+            "value": "Stand_Alone"
+          }
+        }
+      }
+    },
+    "interface_nets": {
+      "BRAM_PORTA_0_1": {
+        "interface_ports": [
+          "BRAM_PORTA_0",
+          "blk_mem_gen_0/BRAM_PORTA"
+        ]
+      }
     }
+  }
 }

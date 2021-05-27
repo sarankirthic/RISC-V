@@ -3,6 +3,13 @@ add x5, x4, x2
 sw x5, 0(x2) -- 00512023
 lw x8, 0(x2)
 add x6, x7, x8 --00838333
+bgeu x10, x9, 12 - 00957663
 sh x6, 0(x3)
 lhu x8, 0(x3) - x3=rs1 and x8=rd
 lh x9, 0(x3) - x3=rs1 and x9=rd
+addi x9, x9, 10
+sw x9, 0(x12)
+
+x12 - 1FFFF
+
+0000 0001 1111 0100

@@ -25,18 +25,22 @@ module instruction_fetch(
     input i_reset_n,
     input i_output_en,
     input [31:0] i_instr_addr,
+    input [31:0] i_instr_mem,
+    output [31:0] o_instr_addr,
     output o_instr_valid,
     output [31:0] o_instr
     );
     
-    wire [31:0] w_instr;
+    assign o_instr_addr = i_instr_addr;
+    
+    //wire [31:0] w_instr;
     
     //instantiate instruction memory module
-    instr_mem instr_mem_inst1(
+    /*instr_mem instr_mem_inst1(
         .i_clk_100M(i_clk_100M),
         .i_instr_addr(i_instr_addr),
         .o_mem_instr(w_instr)
-    );
+    );*/
     
     reg [31:0] r_addr_del_1 = 0;
     reg [31:0] r_addr_del_2 = 0;
@@ -56,6 +60,6 @@ module instruction_fetch(
     end
     
     assign o_instr_valid = ((i_instr_addr == r_addr_del_2) && (r_init_clk_count == 7)) ? 1'b1 : 1'b0;
-    assign o_instr = i_output_en ? w_instr : 0; //Maybe NOOP instruction instead of 0?
+    assign o_instr = i_output_en ? i_instr_mem : 0; //Maybe NOOP instruction instead of 0?
     
 endmodule

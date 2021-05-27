@@ -26,7 +26,6 @@ module alu(
     input [5:0] i_shift,
     input i_i_type,
     input i_r_type,
-    input i_jalr,
     input i_rf_rs1_valid,
     input i_rf_rs2_valid,
     input i_imm_valid,
@@ -54,7 +53,7 @@ module alu(
     parameter c_slli = 6'b000_001, c_srli = 6'b000_010, c_srai = 6'b000_100, c_sll = 6'b001_000, c_srl = 6'b010_000, c_sra = 6'b100_000;
     
     wire [4:0] w_shamt = (i_shift != 0) ? (i_imm_valid) ? i_imm[4:0] : i_rf_rs2[4:0] :
-                         0;
+                         0;                         
     
     reg [31:0] r_arith_result;
     reg [31:0] r_logical_result = 0;
@@ -82,12 +81,12 @@ module alu(
             c_and:      r_logical_result <= (i_rf_rs1 & i_rf_rs2);
         endcase 
         case (i_shift)
-            c_slli:     assign r_shift_result = (i_rf_rs1 << w_shamt);
-            c_srli:     assign r_shift_result = (i_rf_rs1 >> w_shamt);
-            c_srai:     assign r_shift_result = (i_rf_rs1 >>> w_shamt);
-            c_sll:      assign r_shift_result = (i_rf_rs1 << w_shamt);
-            c_srl:      assign r_shift_result = (i_rf_rs1 >> w_shamt);
-            c_sra:      assign r_shift_result = (i_rf_rs1 >>> w_shamt);
+            c_slli:     r_shift_result = (i_rf_rs1 << w_shamt);
+            c_srli:     r_shift_result = (i_rf_rs1 >> w_shamt);
+            c_srai:     r_shift_result = (i_rf_rs1 >>> w_shamt);
+            c_sll:      r_shift_result = (i_rf_rs1 << w_shamt);
+            c_srl:      r_shift_result = (i_rf_rs1 >> w_shamt);
+            c_sra:      r_shift_result = (i_rf_rs1 >>> w_shamt);
         endcase                  
     end
     

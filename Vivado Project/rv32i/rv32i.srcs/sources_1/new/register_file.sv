@@ -37,6 +37,8 @@ module register_file(
     output [31:0]o_portB_dout
     );
     
+    wire [31:0] w_portA_dout, w_portB_dout;
+    
      BRAM_32B_SDP BRAM_32B_SDP_RPORTA
        (.BRAM_PORTA_0_addr(i_wPort_addr),
         .BRAM_PORTA_0_clk(i_clk_100M),
@@ -45,7 +47,7 @@ module register_file(
         .BRAM_PORTA_0_we(i_wPort_we),
         .BRAM_PORTB_0_addr(i_portA_addr),
         .BRAM_PORTB_0_clk(i_clk_100M),
-        .BRAM_PORTB_0_dout(o_portA_dout),
+        .BRAM_PORTB_0_dout(w_portA_dout),
         .BRAM_PORTB_0_en(i_portA_en));
         
         BRAM_32B_SDP BRAM_32B_SDP_RPORTB
@@ -56,7 +58,7 @@ module register_file(
         .BRAM_PORTA_0_we(i_wPort_we),
         .BRAM_PORTB_0_addr(i_portB_addr),
         .BRAM_PORTB_0_clk(i_clk_100M),
-        .BRAM_PORTB_0_dout(o_portB_dout),
+        .BRAM_PORTB_0_dout(w_portB_dout),
         .BRAM_PORTB_0_en(i_portB_en));
         
     reg [4:0] r_portA_addr_del_1 = 0;
@@ -79,6 +81,9 @@ module register_file(
         r_portB_addr_del_1 <= i_portB_addr;
         r_portB_addr_del_2 <= r_portB_addr_del_1;
     end
+    
+    assign o_portA_dout = (i_portA_addr == 0) ? 32'b0 : w_portA_dout;
+    assign o_portB_dout = (i_portB_addr == 0) ? 32'b0 : w_portB_dout; 
     
     assign o_portA_valid = i_portA_en ? ((i_portA_addr == r_portA_addr_del_2) && (r_init_clk_count == 7)) ? 1'b1 : 1'b0 :
                             1'b0;

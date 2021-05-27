@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"Data_RAM": {
+			"proto_instances": {
+			}
+		}
+	}
+}

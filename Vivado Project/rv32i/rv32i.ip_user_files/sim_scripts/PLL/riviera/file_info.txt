@@ -1,0 +1,7 @@
+xpm_cdc.sv,systemverilog,xpm,S:/Xilinx/Vivado/2020.2/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv,incdir="../../../../riscv_j.gen/sources_1/bd/PLL/ipshared/d0f7"incdir="../../../../riscv_j.gen/sources_1/bd/PLL/ipshared/d0f7"
+xpm_memory.sv,systemverilog,xpm,S:/Xilinx/Vivado/2020.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv,incdir="../../../../riscv_j.gen/sources_1/bd/PLL/ipshared/d0f7"incdir="../../../../riscv_j.gen/sources_1/bd/PLL/ipshared/d0f7"
+xpm_VCOMP.vhd,vhdl,xpm,S:/Xilinx/Vivado/2020.2/data/ip/xpm/xpm_VCOMP.vhd,incdir="../../../../riscv_j.gen/sources_1/bd/PLL/ipshared/d0f7"incdir="../../../../riscv_j.gen/sources_1/bd/PLL/ipshared/d0f7"
+PLL_clk_wiz_0_0_clk_wiz.v,verilog,xil_defaultlib,../../../bd/PLL/ip/PLL_clk_wiz_0_0/PLL_clk_wiz_0_0_clk_wiz.v,incdir="../../../../riscv_j.gen/sources_1/bd/PLL/ipshared/d0f7"incdir="../../../../riscv_j.gen/sources_1/bd/PLL/ipshared/d0f7"
+PLL_clk_wiz_0_0.v,verilog,xil_defaultlib,../../../bd/PLL/ip/PLL_clk_wiz_0_0/PLL_clk_wiz_0_0.v,incdir="../../../../riscv_j.gen/sources_1/bd/PLL/ipshared/d0f7"incdir="../../../../riscv_j.gen/sources_1/bd/PLL/ipshared/d0f7"
+PLL.v,verilog,xil_defaultlib,../../../bd/PLL/sim/PLL.v,incdir="../../../../riscv_j.gen/sources_1/bd/PLL/ipshared/d0f7"incdir="../../../../riscv_j.gen/sources_1/bd/PLL/ipshared/d0f7"
+glbl.v,Verilog,xil_defaultlib,glbl.v
