@@ -50,7 +50,7 @@ module anton_mcu_top_tb;
     anton_mcu_top uut (
         .i_clk_100M(i_clk_100M),
         .i_reset(i_reset_n),
-        /*.o_clk(o_clk),
+        .o_clk(o_clk),
         .o_locked(o_locked),
         .o_instr_addr(o_instr_addr),
         .o_instr(o_instr),
@@ -71,7 +71,7 @@ module anton_mcu_top_tb;
         .o_dm_addr(o_dm_addr),
         .o_dm_out(o_dm_out),
         .o_dm_in(o_dm_in),
-        .o_done(o_done),*/
+        .o_done(o_done),
         .o_portA(o_output_portA)
     );
     

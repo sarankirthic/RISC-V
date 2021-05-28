@@ -23,7 +23,7 @@
 module anton_mcu_top(
     input i_clk_100M,
     input i_reset,
-    /*output o_clk,
+    output o_clk,
     output o_locked,
     output [31:0] o_instr_addr,
     output [31:0] o_instr,
@@ -44,7 +44,7 @@ module anton_mcu_top(
     output [31:0] o_dm_addr,
     output [31:0] o_dm_out,
     output [31:0] o_dm_in,
-    output o_done,*/
+    output o_done,
     output o_portA[16]
     );
     

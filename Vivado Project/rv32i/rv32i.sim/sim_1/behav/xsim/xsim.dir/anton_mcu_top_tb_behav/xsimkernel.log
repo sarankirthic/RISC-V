@@ -1,7 +1,7 @@
-Running: xsim.dir/anton_mcu_top_tb_behav/xsimk.exe -simmode gui -wdb anton_mcu_top_tb_behav.wdb -simrunnum 0 -socket 52257
+Running: xsim.dir/anton_mcu_top_tb_behav/xsimk.exe -simmode gui -wdb anton_mcu_top_tb_behav.wdb -simrunnum 0 -socket 51718
 Design successfully loaded
-Design Loading Memory Usage: 7768 KB (Peak: 7768 KB)
-Design Loading CPU Usage: 62 ms
+Design Loading Memory Usage: 7688 KB (Peak: 7688 KB)
+Design Loading CPU Usage: 61 ms
 Simulation completed
-Simulation Memory Usage: 10204 KB (Peak: 10204 KB)
-Simulation CPU Usage: 280 ms
+Simulation Memory Usage: 10100 KB (Peak: 10100 KB)
+Simulation CPU Usage: 155 ms

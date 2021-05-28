@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7a35ticsg324-1L" LaunchTime="1622109786">
   <File Type="PA-TCL" Name="anton_mcu_top.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="anton_mcu_top_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="anton_mcu_top_reports.tcl"/>
   <File Type="RDS-RDS" Name="anton_mcu_top.vds"/>
   <File Type="RDS-UTIL" Name="anton_mcu_top_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="anton_mcu_top_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="anton_mcu_top.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="anton_mcu_top_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="anton_mcu_top_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/bd/Instr_ROM/Instr_ROM.bd">
