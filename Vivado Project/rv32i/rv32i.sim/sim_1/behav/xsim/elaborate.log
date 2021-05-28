@@ -5,47 +5,4 @@ Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
 Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module unisims_ver.IBUF
-Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=10.0,...
-Compiling module unisims_ver.BUFG
-Compiling module xil_defaultlib.PLL_clk_wiz_0_0_clk_wiz
-Compiling module xil_defaultlib.PLL_clk_wiz_0_0
-Compiling module xil_defaultlib.PLL
-Compiling module xil_defaultlib.pll
-Compiling module xil_defaultlib.program_counter
-Compiling module xil_defaultlib.instruction_fetch
-Compiling module xil_defaultlib.instr_decode
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
-Compiling module blk_mem_gen_v8_4_4.blk_mem_axi_regs_fwd_v8_4(C_DATA...
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
-Compiling module xil_defaultlib.BRAM_32B_SDP_blk_mem_gen_0_0
-Compiling module xil_defaultlib.BRAM_32B_SDP
-Compiling module xil_defaultlib.register_file
-Compiling module xil_defaultlib.mmu
-Compiling module xil_defaultlib.alu
-Compiling module xil_defaultlib.branch_control
-Compiling module xil_defaultlib.core_top
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
-Compiling module xil_defaultlib.Instr_ROM_blk_mem_gen_0_0
-Compiling module xil_defaultlib.Instr_ROM
-Compiling module xil_defaultlib.instr_mem
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
-Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="art...
-Compiling module xil_defaultlib.Data_RAM_blk_mem_gen_0_0
-Compiling module xil_defaultlib.Data_RAM
-Compiling module xil_defaultlib.data_mem
-Compiling module xil_defaultlib.gpio
-Compiling module xil_defaultlib.anton_mcu_top
-Compiling module xil_defaultlib.anton_mcu_top_tb
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot anton_mcu_top_tb_behav
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel

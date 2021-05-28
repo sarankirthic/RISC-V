@@ -16,9 +16,12 @@
   <File Type="BITSTR-BMM" Name="anton_mcu_top_bd.bmm"/>
   <File Type="ROUTE-METHODOLOGY-DRC" Name="anton_mcu_top_methodology_drc_routed.rpt"/>
   <File Type="BITSTR-MMI" Name="anton_mcu_top.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="anton_mcu_top_methodology_drc_routed.pb"/>
   <File Type="BITSTR-SYSDEF" Name="anton_mcu_top.sysdef"/>
+  <File Type="ROUTE-DRC-RPX" Name="anton_mcu_top_drc_routed.rpx"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
   <File Type="BITSTR-LTX" Name="anton_mcu_top.ltx"/>
+  <File Type="RCFI_FILE" Name="anton_mcu_top.rcfi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="OPT-DRC" Name="anton_mcu_top_drc_opted.rpt"/>
   <File Type="OPT-HWDEF" Name="anton_mcu_top.hwdef"/>
@@ -48,11 +51,8 @@
   <File Type="PHYSOPT-DCP" Name="anton_mcu_top_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="anton_mcu_top_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="anton_mcu_top_postroute_physopt_bb.dcp"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="anton_mcu_top_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="anton_mcu_top_drc_routed.rpx"/>
   <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="anton_mcu_top_methodology_drc_routed.rpx"/>
   <File Type="PDI-FILE" Name="anton_mcu_top.pdi"/>
-  <File Type="RCFI_FILE" Name="anton_mcu_top.rcfi"/>
   <File Type="CFI_FILE" Name="anton_mcu_top.cfi"/>
   <File Type="RNPI_FILE" Name="anton_mcu_top.rnpi"/>
   <File Type="NPI_FILE" Name="anton_mcu_top.npi"/>

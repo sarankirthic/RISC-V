@@ -100,12 +100,13 @@ module mmu(
     
     /*wire w_rf_wr_valid = i_rd_valid ? ((w_load == 0) && (w_store == 0) && i_rf_wr_vaild) || ((w_load != 0 && o_dm_valid) || w_lui) ? 1'b1: 1'b0) :
                          1'b0;*/
-    wire w_rf_wr_valid = i_rd_valid ? w_load ? (o_dm_valid || i_imm_valid) :
-                                      w_store ? 1'b0 :
-                                      i_rf_wr_valid ? 1'b1 :
-                                      1'b0 :
+    wire w_rf_wr_valid = i_rd_valid ? (w_load & ~ w_lui) ? i_dm_valid :
+                                      (w_load & w_lui) ? i_imm_valid :
+                                       w_store ? 1'b0 :
+                                       i_rf_wr_valid ? 1'b1 :
+                                       1'b0 :
                          1'b0;                         
-    wire [31:0] w_rf_wr_data = w_rf_wr_valid ? o_dm_valid ? o_dm_out :
+    wire [31:0] w_rf_wr_data = w_rf_wr_valid ? i_dm_valid ? i_dm_out :
                                                w_lui ? i_imm :
                                                i_rf_wr_valid ? i_rf_wr_data : 
                                                32'b0 :
@@ -128,7 +129,7 @@ module mmu(
         .o_portB_dout(o_rf_out_data_rs2)
     );
     
-    assign o_mmu_done = ((w_load == 0 && w_store == 0) && w_rf_wr_valid) || ((w_load != 0 && w_lui == 0) && w_rf_wr_valid && o_rf_rs1_valid && i_dm_valid)
+    assign o_mmu_done = ((w_load == 0 && w_store == 0) && w_rf_wr_valid) || ((w_load != 0 && w_lui == 0) && w_rf_wr_valid && o_rf_rs1_valid)
                         || ((w_store != 0) && w_store_done) || (w_lui && w_rf_wr_valid);
     
 endmodule
